@@ -15,7 +15,6 @@ export function BackButton() {
         size={32}
         color={colors.zinc[400]}
       />
-
     </TouchableOpacity>
   )
 }
