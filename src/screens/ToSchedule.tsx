@@ -8,21 +8,23 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 export function ToSchedule() {
 
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+  const [selectedDate, setSelectedDate] = useState(new Date())
 
   const showDatePicker = () => {
     setDatePickerVisibility(true);
-  };
+  }; 
 
   const hideDatePicker = () => {
-    setDatePickerVisibility(false);
+    setDatePickerVisibility(false); 
   };
 
-  const handleConfirm = (date: Date) => {
-    console.warn("Data selecionada: ", date);
+  const handleConfirm = (date:any) => {
+    setSelectedDate(date)
+    console.log(selectedDate)
     hideDatePicker();
-  };
-
-  return (
+  }; 
+ 
+  return ( 
     <View className="flex-1 bg-background">
       <View className="mt-6 ml-4">
         <BackButton />
@@ -31,9 +33,9 @@ export function ToSchedule() {
         <Text className="text-white font-bold text-xl">
           Agenda de aulas
         </Text>
-        <View className="bg-zinc-800 h-auto pb-10 w-80 mt-8 rounded-lg flex">
+        <View className="bg-zinc-800 h-auto pb-10 w-80 mt-8 rounded-lg flex">  
           <Text className="text-white font-semibold text-xl mt-2 ml-auto mr-auto">
-            Hoje
+          {selectedDate ? selectedDate.toLocaleDateString() : 'No date selected'}
           </Text>
           <View className="flex-row justify-around">
             <View className="bg-background w-40 h-10 rounded-lg flex items-center justify-center mt-4">
@@ -87,6 +89,7 @@ export function ToSchedule() {
           onPress={showDatePicker}
         />
         <DateTimePickerModal
+          date={selectedDate}
           isVisible={isDatePickerVisible}
           mode="date"
           onConfirm={handleConfirm}
