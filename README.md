@@ -8,6 +8,7 @@ O App tem por finalidade possibilitar o agendamento e controle de frequência, b
  * Typescript;
  * TailwindCSS (Nativewind);
  * Drawer Navigation;
+ * Modal Date Time Picker (Calendar)
  * Dayjs;
  * Backend (BaaS - Firebase);
 
