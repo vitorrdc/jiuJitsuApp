@@ -20,7 +20,6 @@ export function ToSchedule() {
 
   const handleConfirm = (date:any) => {
     setSelectedDate(date)
-    console.log(selectedDate)
     hideDatePicker();
   }; 
  
