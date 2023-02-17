@@ -33,10 +33,10 @@ export function Notifications() {
               <View className="w-12 h-12 flex-1 items-center justify-center">
                 <View className="bg-zinc-700 rounded-lg h-auto w-80 ml-80 flex p-4  items-center">
                   <Text className="text-white font-regular text-lg text-justify">
-                    io?
+                    Boa tarde galera, seguinte: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea aspernatur facilis repellendus, saepe officia placeat. Impedit rerum sint eius illum deserunt reprehenderit nisi cumque quaerat iure, quos, saepe similique modi.
                   </Text>
                   <TouchableOpacity
-                    className="h-8 w-20  bg-background mt-10 flex items-center justify-center"
+                    className="h-8 w-20  bg-background mt-10 flex rounded-lg items-center justify-center"
                     onPress={() => setModalVisible(!modalVisible)}
                     activeOpacity={0.7}
                   >
