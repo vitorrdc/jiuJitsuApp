@@ -4,7 +4,7 @@ import colors from "tailwindcss/colors";
 
 export function Welcome() {
   return (
-    <View className="w-full  flex-row justify-between items-center">
+    <View className="w-full  flex-row justify-between items-center mb-4">
       <View>
           <Text className="text-white text-xl w-30 font-regular">
             Bem-vindo, 

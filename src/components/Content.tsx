@@ -8,7 +8,7 @@ export function Content() {
   const [qtdGrausNaFaixa, setQtdGrausNaFaixa] = useState([1, 2, 3, 4])
 
   return (
-    <View className="w-full flex items-center mt-12 ">
+    <View className="w-full flex items-center mt-8 ">
         <Image 
           source={require('../assets/avatar.jpeg')}
           className="h-32 w-32 rounded-full border-2 border-blue-600"
@@ -38,7 +38,7 @@ export function Content() {
         </View>
         <Text className="text-white mt-8 text-base font-semibold">Hoje tem treino!</Text>
         <TouchableOpacity 
-          className="bg-green-500 w-full mt-2 h-12 flex-row items-center rounded-xl"
+          className="bg-green-500 w-72 ml-auto mr-auto mt-2 h-12 flex-row items-center rounded-xl"
           activeOpacity={0.8}
         >
             <View className="ml-8">
@@ -52,7 +52,7 @@ export function Content() {
               Confirmar presença!
             </Text>
         </TouchableOpacity>
-        <View className="mt-12 flex-row">
+        <View className="mt-8 flex-row">
           <TouchableOpacity className="ml-2">
             <Feather 
               name="instagram"
