@@ -26,7 +26,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [TawilindCSS / Nativewind](https://www.nativewind.dev/)
 - [Modal DateTime Picker - Calendar](https://github.com/mmazzarolo/react-native-modal-datetime-picker)
 - [Firebase](https://firebase.google.com/)
-= [Axios](https://axios-http.com/ptbr/docs/intro)
+- [Axios](https://axios-http.com/ptbr/docs/intro)
 
 ### 👨🏾‍💻 Autor
 ---
