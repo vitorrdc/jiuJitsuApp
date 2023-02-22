@@ -5,7 +5,8 @@ import { ScrollView } from "react-native-gesture-handler";
 
 export function Notifications() {
 
-  const [modalVisible, setModalVisible] = useState(false)
+  const [modalVisible, setModalVisible] = useState<boolean>(false)
+  const [seenMessage, setSeenMessage] = useState<boolean>(false)
 
   return (
     <View className="flex-1 bg-background px-6 pt-8" >
