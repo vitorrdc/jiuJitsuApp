@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StatusBar } from 'react-native';
 import {
   useFonts,
@@ -9,9 +9,13 @@ import {
 } from '@expo-google-fonts/inter'
 import { Loading } from './src/components/Loading';
 import { Routes } from './src/routes';
+import {Login} from './src/screens/Login'
 
 
 export default function App() {
+
+  const [auth, setAuth] = useState(true)
+
  const [fontsLoaded] = useFonts({
     Inter_400Regular,
     Inter_600SemiBold,
