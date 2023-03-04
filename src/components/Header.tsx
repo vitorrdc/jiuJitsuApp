@@ -6,7 +6,7 @@ export function Header() {
     <View className="w-full h-8 flex-row items-center justify-around ">
       <View className="flex items-center justify-center ml-8">
         <Text className="text-white text-xl font-bold">
-          Ryan Gracie Team
+          Nome da Academia
         </Text> 
       </View>
      

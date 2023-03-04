@@ -33,7 +33,7 @@ export function Content() {
             10 aulas
           </Text>
           <Text className="text-white mt-1 text-xl font-bold w-full p-1">
-            Próxima graduação em: 60 aulas
+            Próxima graduação em: 140 aulas
           </Text>
         </View>
         <Text className="text-white mt-8 text-base font-semibold">Hoje tem treino!</Text>
