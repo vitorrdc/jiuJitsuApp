@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, TextInput } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 
 export function StudentList() {
@@ -8,6 +8,12 @@ export function StudentList() {
         <Text className="text-white text-center font-bold text-xl mb-6">
           Lista de Alunos
         </Text>
+        <TextInput
+          placeholder="Buscar aluno"
+          placeholderTextColor='gray'
+          className="w-full border border-gray-500 py-1 px-2 rounded-lg mb-4"
+        
+        />
         <Text className="text-white text-xs ">
           Total: 57
         </Text>
