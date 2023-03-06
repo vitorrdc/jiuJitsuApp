@@ -6,6 +6,7 @@ import { auth } from '../services/firebase';
 import { LogOut } from '../components/LogOut';
 import { AddNewUser } from '../screens/AddNewUser';
 import { StudentList } from '../screens/StudentList';
+import { StudentEdit } from '../screens/StudentEdit';
 
 const Drawer = createDrawerNavigator()
 
@@ -58,6 +59,7 @@ export function AdmRoutes() {
             (userOn) && (<>
             <Drawer.Screen name='Criar novo Usuário'  component={AddNewUser} />
             <Drawer.Screen name='Lista de alunos'  component={StudentList} />
+            <Drawer.Screen name='Editar Alunos'  component={StudentEdit} />
             <Drawer.Screen name='Sair'  component={LogOut} />
             
 
