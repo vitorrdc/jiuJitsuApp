@@ -1,18 +1,31 @@
 import {View, Text, Alert, TouchableOpacity} from 'react-native'
 import { ScrollView, TextInput } from 'react-native-gesture-handler'
 import SelectDropdown from 'react-native-select-dropdown'
+import Modal from "react-native-modal"
+import { useState } from 'react'
+import { BackButton } from '../components/BackButton'
+
 
 export function StudentEdit() {
 
   const belts = ['Branca', 'Azul', 'Roxa', 'Marrom', 'Preta']
   const degree = ['1 grau', '2 graus', '3 graus', '4 graus']
+  const [isVisibleModal, setIsVisibleModal] = useState(false)
 
+  function toggleModal() {
+    setIsVisibleModal(!isVisibleModal)
+  }
 
   return (
     <View className='flex-1 bg-background'>
       <ScrollView className='p-4'>
-        <Text className='text-white font-bold text-xl mt-8 text-center'>Editar Aluno</Text>
-        <View className='bg-zinc-500 w-full px-2 py-6 rounded-lg mt-8'>
+        <View className='flex-row items-center justify-center'>
+          <View className='absolute left-0'>
+            <BackButton />
+          </View>
+          <Text className='text-white font-bold text-xl text-center'>Editar Aluno</Text>
+        </View>
+        <View className='bg-zinc-600 w-full px-2 py-6 rounded-lg mt-8'>
           <Text className='text-white mb-1 ml-2'>
             Nome
           </Text>
@@ -99,11 +112,38 @@ export function StudentEdit() {
         <TouchableOpacity 
           className='bg-green-500 rounded-lg p-2 mt-4'
           activeOpacity={0.9}
+          onPress={toggleModal}
         >
           <Text className='text-white text-center text-xl font-semibold'>
             + Evento
           </Text>
         </TouchableOpacity>
+        <Modal isVisible={isVisibleModal}>
+          <View className='flex-1 items-center justify-center'>
+            <View className='bg-zinc-500 w-72 h-72 items-center justify-center p-4 rounded-lg border border-zinc-300'>
+              <Text className='text-white font-semibold text-lg mb-6'>
+                Adicione um Evento
+              </Text>
+              <TextInput 
+                placeholder='Digite a data'
+                placeholderTextColor='gray'
+                className='w-full h-10 bg-background border border-zinc-300 rounded-lg px-2 mb-4'
+              />
+               <TextInput 
+                placeholder='Curta descrição do evento'
+                placeholderTextColor='gray'
+                className='w-full h-10 bg-background border border-zinc-300 rounded-lg px-2 mb-4'
+              />
+              <TouchableOpacity 
+                onPress={toggleModal}
+                className='bg-green-500 w-full h-10 rounded-lg justify-center'
+                activeOpacity={0.9}
+              >
+                <Text className='text-white text-center font-semibold'>Salvar evento</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </Modal>
         <View className="h-auto w-full pb-4 mt-6">
           <View className="flex-row items-center justify-around mt-4">
             <Text className="text-white text-base">

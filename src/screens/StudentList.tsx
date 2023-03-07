@@ -1,7 +1,10 @@
 import { View, Text, TouchableOpacity, TextInput } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
+import { useNavigation } from "@react-navigation/native";
+
 
 export function StudentList() {
+
   return (
     <View className="bg-background flex-1 items-center">
       <ScrollView className="flex-1 w-full p-4" showsVerticalScrollIndicator={false}>
@@ -22,8 +25,7 @@ export function StudentList() {
           </Text>
           <TouchableOpacity 
             className="bg-blue-500 rounded-lg p-2"
-            activeOpacity={0.9}
-          
+            activeOpacity={0.9}          
           >
             <Text>
               Editar

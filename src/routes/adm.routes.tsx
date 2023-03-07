@@ -7,6 +7,7 @@ import { LogOut } from '../components/LogOut';
 import { AddNewUser } from '../screens/AddNewUser';
 import { StudentList } from '../screens/StudentList';
 import { StudentEdit } from '../screens/StudentEdit';
+import { ConfirmAttendance } from '../screens/ConfirmAttendance';
 
 const Drawer = createDrawerNavigator()
 
@@ -60,6 +61,7 @@ export function AdmRoutes() {
             <Drawer.Screen name='Criar novo Usuário'  component={AddNewUser} />
             <Drawer.Screen name='Lista de alunos'  component={StudentList} />
             <Drawer.Screen name='Editar Alunos'  component={StudentEdit} />
+            <Drawer.Screen name='Confirmar Presenças'  component={ConfirmAttendance} />
             <Drawer.Screen name='Sair'  component={LogOut} />
             
 
