@@ -14,7 +14,7 @@ Etapa atual:
 - [x] Codificação do Layout no VS Code;
 - [x] Ajustes de Estado dos Componentes;
 - [ ] Criação do Backend (BaaS Firebase);
-- [ ] Consumo de API (axios);
+- [ ] Consumo de API;
 - [ ] Deploy do aplicativo;
 
 ### 🛠 Tecnologias
