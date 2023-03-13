@@ -35,7 +35,6 @@ export function AdmRoutes() {
           fontSize: 18,
         },
         headerStyle: {
-          height: 50,
           backgroundColor: '#0a0a0a',
         },
         headerTintColor: '#ffff',

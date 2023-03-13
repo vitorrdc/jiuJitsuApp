@@ -1,9 +1,10 @@
 import { useState } from 'react'
-import { View, Text, TextInput, Alert } from 'react-native'
-import { TouchableOpacity } from 'react-native-gesture-handler'
-import colors from 'tailwindcss/colors'
-import { Auth, createUserWithEmailAndPassword } from 'firebase/auth'
+import { Alert } from 'react-native'
+import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../services/firebase'
+import { Input } from '../components/Input'
+import { Button } from '../components/Button'
+import { ScrollView, Text, VStack } from 'native-base'
 
 export function AddNewUser() {
   const [email, setEmail] = useState('')
@@ -19,45 +20,32 @@ export function AddNewUser() {
   }
 
   return (
-    <View className="flex-1 bg-background w-full  items-center px-6">
-      <Text className="text-white font-bold text-xl mt-8 mb-10">
-        Cadastrar novo aluno
-      </Text>
-      <View className="w-full bg-zinc-600 rounded-lg p-2 py-4">
-        <Text className="text-white ml-2">Nome</Text>
-        <TextInput
-          placeholder="Digite o nome ou Apelido"
-          className="bg-background border text-zinc-500 rounded-lg border-zinc-600 mt-1 p-2"
-          placeholderTextColor="gray"
-        />
-        <Text className="text-white ml-2 mt-4">E-mail</Text>
-        <TextInput
-          placeholder="Ex: aluno@provedor.com"
-          className="bg-background border text-zinc-500 rounded-lg border-zinc-600 mt-1 p-2"
-          placeholderTextColor="gray"
-          onChangeText={setEmail}
-        />
-        <Text className="text-white ml-2 mt-4">Senha provisória</Text>
-        <TextInput
-          className="bg-background text-zinc-500 border rounded-lg border-zinc-600 mt-1 p-2"
-          placeholderTextColor="gray"
-          secureTextEntry={true}
-          onChangeText={setPassword}
-        />
-        <Text className="text-white ml-2 mt-4">Repetir senha</Text>
-        <TextInput
-          className="bg-background text-zinc-500 border rounded-lg border-zinc-600 mt-1 p-2"
-          placeholderTextColor="gray"
-          secureTextEntry={true}
-        />
-        <TouchableOpacity
-          className="bg-green-600 w-full h-10 rounded-lg mt-6 py-1"
-          activeOpacity={0.8}
-          onPress={createUser}
-        >
-          <Text className="text-center text-white text-lg">Cadastrar</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
+    <ScrollView
+      showsVerticalScrollIndicator={false}
+      _contentContainerStyle={{ flex: 1 }}
+      backgroundColor="gray.900"
+    >
+      <VStack flex={1} alignItems="center" px={4}>
+        <Text color="gray.100" fontFamily="heading" fontSize="xl" mt={6} mb={9}>
+          Cadastrar novo aluno
+        </Text>
+
+        <VStack w="full" backgroundColor="gray.400" p={4} rounded="md">
+          <Input placeholder="Digite o nome ou Apelido" label="Nome" />
+
+          <Input placeholder="aluno@provedor.com" label="E-mail" />
+
+          <Input
+            placeholder="******"
+            secureTextEntry
+            label="Senha provisória"
+          />
+
+          <Input placeholder="******" secureTextEntry label="Repetir senha" />
+
+          <Button title="Cadastrar" mt={2} />
+        </VStack>
+      </VStack>
+    </ScrollView>
   )
 }
