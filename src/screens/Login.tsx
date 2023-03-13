@@ -1,8 +1,8 @@
-import {View, TextInput, TouchableOpacity, Text, Alert} from "react-native";
+import {View, TextInput, TouchableOpacity, Text} from "react-native";
 import colors from "tailwindcss/colors";
 import { useEffect, useState } from "react";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateCurrentUser } from 'firebase/auth'
-import { auth, app } from "../services/firebase";
+import { signInWithEmailAndPassword, updateCurrentUser } from 'firebase/auth'
+import { auth} from "../services/firebase";
 import { isAdmin } from "@firebase/util";
 import { useNavigation } from "@react-navigation/native";
 
@@ -14,14 +14,6 @@ export function Login(props: any) {
   const [email, setEmail] = useState<any>('adm@adm.com')
   const [password, setPassword] = useState<any>('123456')
 
-  async function createUser() {
-    try {
-    const value = await createUserWithEmailAndPassword(auth, email, password)
-    alert(`cadastrado com sucesso, ${value.user.uid}`)
-    } catch (error) {
-      alert(error)
-    }
-  }
 
   async function userLogin() {
     try {

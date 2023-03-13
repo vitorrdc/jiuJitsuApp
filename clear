@@ -1,0 +1,180 @@
+[33mcommit 63523028792ef03182525ab8a5e95ce5db94b0b5[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Vitor Ribeiro <vitor.camposrdc@gmail.com>
+Date:   Tue Mar 7 23:25:05 2023 -0300
+
+    add auth for create user
+
+[33mcommit 674016e4acb824cd72de06ee7e513b1a97b130a0[m
+Author: Vitor Ribeiro <vitor.camposrdc@gmail.com>
+Date:   Mon Mar 6 22:26:44 2023 -0300
+
+    add confirm attendance
+
+[33mcommit 81ccd309f1033e00f5ae5d8b371bf966bf21d680[m
+Author: Vitor Ribeiro <vitor.camposrdc@gmail.com>
+Date:   Mon Mar 6 19:52:59 2023 -0300
+
+    add some privete routes
+
+[33mcommit ee689414d5c2ab452e0bfb4f9ba3f610c37f931a[m
+Author: Vitor Ribeiro <vitor.camposrdc@gmail.com>
+Date:   Sat Mar 4 17:48:14 2023 -0300
+
+    add input in student list
+
+[33mcommit 6c5b7d44043ab4ad3eb36bfa6b6d83506e1f37a9[m
+Merge: 95daff0 5387ed0
+Author: Vitor Ribeiro <vitor.camposrdc@gmail.com>
+Date:   Sat Mar 4 17:24:51 2023 -0300
+
+    Merge branch 'master' of https://github.com/vitorrdc/jiuJitsuApp
+
+[33mcommit 95daff035436e29f882fcc5f55ee7270844a1e40[m
+Author: Vitor Ribeiro <vitor.camposrdc@gmail.com>
+Date:   Sat Mar 4 17:24:36 2023 -0300
+
+    add some adm's screen
+
+[33mcommit 5387ed0cd8dcabc7f3d8e5b548edd69aa2335c64[m
+Author: Vitor Campos <103773666+vitorrdc@users.noreply.github.com>
+Date:   Sat Feb 25 16:31:35 2023 -0300
+
+    Update README.md
+
+[33mcommit 4930ad5e78a1fd2490d3fae8c3686028d022767d[m
+Author: Vitor Ribeiro <vitor.camposrdc@gmail.com>
+Date:   Sat Feb 25 16:31:19 2023 -0300
+
+    add new banner
+
+[33mcommit 7a74cec26fe596390395f4c0be8eab29da01082f[m
+Author: Vitor Ribeiro <vitor.camposrdc@gmail.com>
+Date:   Sat Feb 25 16:21:21 2023 -0300
+
+    add auth w/ firebase
+
+[33mcommit ffe78fae815e0400714c96453347b60adae16835[m
+Merge: 355b584 800af6e
+Author: Vitor Ribeiro <vitor.camposrdc@gmail.com>
+Date:   Tue Feb 21 21:34:54 2023 -0300
+
+    Merge branch 'master' of https://github.com/vitorrdc/jiuJitsuApp
+
+[33mcommit 355b58425853f2ce614caef77b9e67a363cee37b[m
+Author: Vitor Ribeiro <vitor.camposrdc@gmail.com>
+Date:   Tue Feb 21 21:34:47 2023 -0300
+
+    posicioned some items
+
+[33mcommit 800af6e954758347449bac50f2d5208ef042b0a6[m
+Author: Vitor Campos <103773666+vitorrdc@users.noreply.github.com>
+Date:   Mon Feb 20 13:00:41 2023 -0300
+
+    Update README.md
+
+[33mcommit a0ebe63617d43d0a6672c9452bc7e50efc0f5a70[m
+Author: Vitor Campos <103773666+vitorrdc@users.noreply.github.com>
+Date:   Mon Feb 20 13:00:13 2023 -0300
+
+    Update README.md
+
+[33mcommit 7c4b2a8c890595d484ac62fc7830763f6268b0a1[m
+Author: Vitor Ribeiro <vitor.camposrdc@gmail.com>
+Date:   Mon Feb 20 12:47:36 2023 -0300
+
+    add selectedClass state
+
+[33mcommit 917101e75a1c185d092786cef41b9a1274e7ef09[m
+Author: Vitor Ribeiro <vitor.camposrdc@gmail.com>
+Date:   Fri Feb 17 17:22:46 2023 -0300
+
+    add pendence's screen
+
+[33mcommit af2c60e81379963bb9f4853fd70341d8e8c07ea5[m
+Merge: 807fd0a a28e53f
+Author: Vitor Ribeiro <vitor.camposrdc@gmail.com>
+Date:   Fri Feb 17 15:09:34 2023 -0300
+
+    Merge branch 'master' of https://github.com/vitorrdc/jiuJitsuApp
+
+[33mcommit 807fd0aca126a0c50985136000dc7fa614ea72e7[m
+Author: Vitor Ribeiro <vitor.camposrdc@gmail.com>
+Date:   Fri Feb 17 15:09:26 2023 -0300
+
+    add notifications modal
+
+[33mcommit a28e53f22ea70c599d05ee0279b77540154765d6[m
+Author: Vitor Campos <103773666+vitorrdc@users.noreply.github.com>
+Date:   Thu Feb 16 22:20:22 2023 -0300
+
+    Update README.md
+
+[33mcommit 35ed6afb34bd6ce2c1dfd7a97a6b969fe2dbf93e[m
+Author: Vitor Ribeiro <vitor.camposrdc@gmail.com>
+Date:   Thu Feb 16 22:18:22 2023 -0300
+
+    to improve style from some screens
+
+[33mcommit 4ad1130c4b5afb30b52043a7d90d1ece05a38499[m
+Author: Vitor Ribeiro <vitor.camposrdc@gmail.com>
+Date:   Thu Feb 16 21:48:48 2023 -0300
+
+    add date selected by user
+
+[33mcommit e26e16afcc6af34f5355b7cde551e2b2132f598a[m
+Author: Vitor Ribeiro <vitor.camposrdc@gmail.com>
+Date:   Thu Feb 16 12:22:59 2023 -0300
+
+    add react native date picker
+
+[33mcommit 010ee4d416ce05e40babd9d9d3f1d0d8f342de3d[m
+Merge: 6d04d26 21b715f
+Author: Vitor Ribeiro <vitor.camposrdc@gmail.com>
+Date:   Wed Feb 15 23:59:23 2023 -0300
+
+    Merge branch 'master' of https://github.com/vitorrdc/jiuJitsuApp
+
+[33mcommit 6d04d2649b2582c541edd0289ab3ee532b140739[m
+Author: Vitor Ribeiro <vitor.camposrdc@gmail.com>
+Date:   Wed Feb 15 23:59:17 2023 -0300
+
+    add change avatar's screen and back button
+
+[33mcommit 21b715f29a7fc7ac7b94ba4d0b356480c8d17882[m
+Author: Vitor Campos <103773666+vitorrdc@users.noreply.github.com>
+Date:   Wed Feb 15 17:25:49 2023 -0300
+
+    Update README.md
+
+[33mcommit 0d813d0c36d61a83e392478fffec5f804948b0a7[m
+Merge: 5118ba0 d259911
+Author: Vitor Ribeiro <vitor.camposrdc@gmail.com>
+Date:   Wed Feb 15 17:24:34 2023 -0300
+
+    Merge branch 'master' of https://github.com/vitorrdc/jiuJitsuApp
+
+[33mcommit 5118ba005ce463f6408f614b41a401ae85fbe507[m
+Author: Vitor Ribeiro <vitor.camposrdc@gmail.com>
+Date:   Wed Feb 15 17:24:30 2023 -0300
+
+    add banner image to Read Me
+
+[33mcommit d25991164b1a0cfd85e45bb63351a0e7be9e0334[m
+Author: Vitor Campos <103773666+vitorrdc@users.noreply.github.com>
+Date:   Wed Feb 15 15:09:01 2023 -0300
+
+    Create README.md
+
+[33mcommit 723a4c910e80325a3be4fa7186bd49840c22b57c[m
+Author: Vitor Ribeiro <vitor.camposrdc@gmail.com>
+Date:   Wed Feb 15 14:53:26 2023 -0300
+
+    first commit
+
+[33mcommit 7f5bf0af574442923f2e996f18c5015e0f0e5d8c[m
+Author: Vitor Ribeiro <vitor.camposrdc@gmail.com>
+Date:   Tue Jan 17 21:24:48 2023 -0300
+
+    Initial commit
+    
+    Generated by create-expo-app 1.1.5.
