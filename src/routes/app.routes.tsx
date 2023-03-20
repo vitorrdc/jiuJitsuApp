@@ -5,7 +5,6 @@ import { Notifications } from '../screens/Notifications'
 import { Pendences } from '../screens/Pendences'
 import { Timeline } from '../screens/Timeline'
 import { ToSchedule } from '../screens/ToSchedule'
-import { TrocarFoto } from '../screens/TrocarFoto'
 import { useEffect, useState } from 'react'
 import { Login } from '../screens/Login'
 import { auth } from '../services/firebase'
@@ -36,7 +35,6 @@ export function AppRoutes() {
           fontSize: 18,
         },
         headerStyle: {
-          height: 50,
           backgroundColor: '#0a0a0a',
         },
         headerTintColor: '#ffff',
@@ -57,7 +55,6 @@ export function AppRoutes() {
       {userOn && (
         <>
           <Drawer.Screen name="Home" component={Home} />
-          <Drawer.Screen name="Trocar foto de perfil" component={TrocarFoto} />
           <Drawer.Screen name="Agenda de aula" component={ToSchedule} />
           <Drawer.Screen name="Minha evolução" component={Timeline} />
           <Drawer.Screen

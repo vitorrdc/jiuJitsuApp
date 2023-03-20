@@ -1,72 +1,77 @@
-import { View, Text } from 'react-native'
-import { ScrollView } from 'react-native-gesture-handler'
-import { BackButton } from '../components/BackButton'
+import {
+  HStack,
+  VStack,
+  Text,
+  Heading,
+  Center,
+  ScrollView,
+  Box,
+} from 'native-base'
+
+const timeline = [
+  { date: '10/01/2023', faixa: null, title: 'Matrícula' },
+  { date: '10/01/2023', faixa: null, title: 'Matrícula' },
+  { date: '10/01/2023', faixa: null, title: 'Matrícula' },
+  { date: '10/01/2023', faixa: null, title: 'Matrícula' },
+  { date: '10/01/2023', faixa: null, title: 'Matrícula' },
+]
 
 export function Timeline() {
   return (
-    <View className="flex-1 bg-background pr-4 pl-4">
-      <View className="mt-6 ml-4">
-        <BackButton />
-      </View>
+    <VStack flex={1} backgroundColor="gray.900" p={6}>
+      <Center my={4}>
+        <Heading color="gray.100" fontFamily="heading" fontSize="2xl">
+          Minha Linha do Tempo
+        </Heading>
+      </Center>
 
-      <Text className="text-white text-2xl font-bold ml-auto mr-auto mb-4">
-        Minha Linha do Tempo
-      </Text>
-      <View className="bg-zinc-800 h-auto w-86 pb-4 rounded-lg pt-6">
-        <ScrollView
-          showsVerticalScrollIndicator={false}
-          contentContainerStyle={{ paddingBottom: 100 }}
-        >
-          <View className="flex-row items-center justify-around">
-            <Text className="text-white text-base">10/01/2019</Text>
-            <View className="w-8 h-8 rounded-full bg-background" />
-            <View className="w-40 h-10 bg-white rounded-lg flex items-center justify-center">
-              <Text className="text-lg">Matrícula</Text>
-            </View>
-          </View>
-          <View className="bg-background h-12 w-1 ml-32" />
-          <View className="flex-row items-center justify-around">
-            <Text className="text-white text-base">27/06/2019</Text>
-            <View className="w-8 h-8 rounded-full bg-background" />
-            <View className="w-40 h-10 bg-white rounded-lg flex items-center justify-center">
-              <Text className="text-lg">Ganhou 2 graus</Text>
-            </View>
-          </View>
-          <View className="bg-background h-12 w-1 ml-32" />
-          <View className="flex-row items-center justify-around">
-            <Text className="text-white text-base">10/05/2020</Text>
-            <View className="w-8 h-8 rounded-full bg-background" />
-            <View className="w-40 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-              <Text className="text-lg">Faixa azul</Text>
-            </View>
-          </View>
-          <View className="bg-background h-12 w-1 ml-32" />
-          <View className="flex-row items-center justify-around">
-            <Text className="text-white text-base">10/01/2019</Text>
-            <View className="w-8 h-8 rounded-full bg-background" />
-            <View className="w-40 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-              <Text className="text-lg">Ganhou 1 grau</Text>
-            </View>
-          </View>
-          <View className="bg-background h-12 w-1 ml-32" />
-          <View className="flex-row items-center justify-around">
-            <Text className="text-white text-base">10/01/2019</Text>
-            <View className="w-8 h-8 rounded-full bg-background" />
-            <View className="w-40 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-              <Text className="text-lg">Ganhou 2 grau</Text>
-            </View>
-          </View>
-          <View className="bg-background h-12 w-1 ml-32" />
-          <View className="flex-row items-center justify-around">
-            <Text className="text-white text-base">10/01/2019</Text>
-            <View className="w-8 h-8 rounded-full bg-background" />
-            <View className="w-40 h-10 bg-purple-600 rounded-lg flex items-center justify-center">
-              <Text className="text-lg">Faixa roxa</Text>
-            </View>
-          </View>
-          <View className="bg-background h-12 w-1 ml-32" />
-        </ScrollView>
-      </View>
-    </View>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        backgroundColor="gray.500"
+        p={6}
+        rounded="md"
+        flex="inherit-"
+      >
+        {timeline.map((item, index) => (
+          <VStack key={String(index)} minH={24} maxH={24}>
+            {index !== 0 && (
+              <Center backgroundColor="error.500" mt={1}>
+                <Box
+                  w={1}
+                  h={16}
+                  backgroundColor="gray.900"
+                  position="absolute"
+                />
+              </Center>
+            )}
+            <HStack alignItems="center" justifyContent="space-between">
+              <Text color="gray.100" fontSize="md" fontFamily="heading">
+                {item.date}
+              </Text>
+
+              <Center position="absolute" w="full">
+                <Box backgroundColor="gray.900" h={8} w={8} rounded="full" />
+              </Center>
+
+              <Center backgroundColor="white" rounded="md" p={2} maxW="40%">
+                <Text textAlign="center" numberOfLines={2}>
+                  {item.title}
+                </Text>
+              </Center>
+            </HStack>
+            {index < timeline.length - 1 && (
+              <Center backgroundColor="error.500" mt={1}>
+                <Box
+                  w={1}
+                  h={16}
+                  backgroundColor="gray.900"
+                  position="absolute"
+                />
+              </Center>
+            )}
+          </VStack>
+        ))}
+      </ScrollView>
+    </VStack>
   )
 }

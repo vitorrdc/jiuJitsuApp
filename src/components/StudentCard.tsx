@@ -10,7 +10,8 @@ export function StudentCard({ name }: Props) {
     <HStack
       backgroundColor="gray.400"
       py={2}
-      px={4}
+      pl={4}
+      pr={2}
       mb={3}
       rounded="md"
       alignItems="center"
