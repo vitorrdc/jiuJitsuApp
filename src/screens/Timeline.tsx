@@ -25,52 +25,58 @@ export function Timeline() {
         </Heading>
       </Center>
 
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        backgroundColor="gray.500"
-        p={6}
-        rounded="md"
-        flex="inherit-"
-      >
-        {timeline.map((item, index) => (
-          <VStack key={String(index)} minH={24} maxH={24}>
-            {index !== 0 && (
-              <Center backgroundColor="error.500" mt={1}>
-                <Box
-                  w={1}
-                  h={16}
-                  backgroundColor="gray.900"
-                  position="absolute"
-                />
-              </Center>
-            )}
-            <HStack alignItems="center" justifyContent="space-between">
-              <Text color="gray.100" fontSize="md" fontFamily="heading">
-                {item.date}
-              </Text>
-
-              <Center position="absolute" w="full">
-                <Box backgroundColor="gray.900" h={8} w={8} rounded="full" />
-              </Center>
-
-              <Center backgroundColor="white" rounded="md" p={2} maxW="40%">
-                <Text textAlign="center" numberOfLines={2}>
-                  {item.title}
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <VStack backgroundColor="gray.500" p={6} rounded="md">
+          {timeline.map((item, index) => (
+            <VStack
+              key={String(index)}
+              minH={index === timeline.length - 1 ? 0 : 24}
+              maxH={24}
+            >
+              {index !== 0 && (
+                <Center backgroundColor="error.500" mt={1}>
+                  <Box
+                    w={1}
+                    h={16}
+                    backgroundColor="gray.900"
+                    position="absolute"
+                  />
+                </Center>
+              )}
+              <HStack alignItems="center" justifyContent="space-between">
+                <Text color="gray.100" fontSize="md" fontFamily="heading">
+                  {item.date}
                 </Text>
-              </Center>
-            </HStack>
-            {index < timeline.length - 1 && (
-              <Center backgroundColor="error.500" mt={1}>
-                <Box
-                  w={1}
-                  h={16}
-                  backgroundColor="gray.900"
-                  position="absolute"
-                />
-              </Center>
-            )}
-          </VStack>
-        ))}
+
+                <Center position="absolute" w="full">
+                  <Box backgroundColor="gray.900" h={8} w={8} rounded="full" />
+                </Center>
+
+                <Center
+                  backgroundColor="white"
+                  rounded="md"
+                  p={2}
+                  maxW="35%"
+                  minW="35%"
+                >
+                  <Text textAlign="center" numberOfLines={2}>
+                    {item.title}
+                  </Text>
+                </Center>
+              </HStack>
+              {index < timeline.length - 1 && (
+                <Center backgroundColor="error.500" mt={1}>
+                  <Box
+                    w={1}
+                    h={16}
+                    backgroundColor="gray.900"
+                    position="absolute"
+                  />
+                </Center>
+              )}
+            </VStack>
+          ))}
+        </VStack>
       </ScrollView>
     </VStack>
   )

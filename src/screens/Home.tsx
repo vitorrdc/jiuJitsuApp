@@ -14,6 +14,7 @@ import {
 } from 'native-base'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { Button } from '../components/Button'
+import { SocialMediaButtons } from '../components/SocialMediaButtons'
 
 export function Home() {
   const { colors } = useTheme()
@@ -115,34 +116,7 @@ export function Home() {
         </VStack>
       </VStack>
 
-      <Center flexDirection="row" mt={8}>
-        <TouchableOpacity style={{ marginHorizontal: 8 }}>
-          <Icon
-            as={MaterialCommunityIcons}
-            name="instagram"
-            size={8}
-            color="gray.100"
-          />
-        </TouchableOpacity>
-
-        <TouchableOpacity style={{ marginHorizontal: 8 }}>
-          <Icon
-            as={MaterialCommunityIcons}
-            name="facebook"
-            size={8}
-            color="gray.100"
-          />
-        </TouchableOpacity>
-
-        <TouchableOpacity style={{ marginHorizontal: 8 }}>
-          <Icon
-            as={MaterialCommunityIcons}
-            name="whatsapp"
-            size={8}
-            color="gray.100"
-          />
-        </TouchableOpacity>
-      </Center>
+      <SocialMediaButtons mt={8} />
     </ScrollView>
   )
 }

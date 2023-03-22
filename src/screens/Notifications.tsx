@@ -1,73 +1,100 @@
-import {
-  View,
-  Text,
-  Modal,
-  TouchableOpacity,
-  Pressable,
-  Alert,
-} from 'react-native'
-import { BackButton } from '../components/BackButton'
 import { useState } from 'react'
-import { ScrollView } from 'react-native-gesture-handler'
+import { Center, VStack, Heading, ScrollView, Modal } from 'native-base'
+import { NotificationItem } from '../components/NotificationItem'
+
+type NotificationData = {
+  id: number
+  date: string
+  description: string
+  read: boolean
+}
 
 export function Notifications() {
   const [modalVisible, setModalVisible] = useState<boolean>(false)
-  const [seenMessage, setSeenMessage] = useState<boolean>(false)
+  const [notifications, setNotifications] = useState<NotificationData[]>([
+    {
+      id: 1,
+      date: '10/01/2023',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, itaque minus! Explicabo, temporibus sint facilis sequi   amet ullam labore maxime aspernatur doloribus earum fugiat laudantium aperiam quo nam aliquam commodi? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio, iste. Dolore, cupiditate modi doloribus odio ipsum itaque hic sit necessitatibus, ducimus, qui dolores! Praesentium quod commodi, repellendus ipsa eum esse? Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, voluptates doloribus voluptatibus possimus inventore molestias?',
+      read: false,
+    },
+    {
+      id: 2,
+      date: '22/01/2023',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, itaque minus! Explicabo, temporibus sint facilis sequi   amet ullam labore maxime aspernatur doloribus earum fugiat laudantium aperiam quo nam aliquam commodi? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio, iste. Dolore, cupiditate modi doloribus odio ipsum itaque hic sit necessitatibus, ducimus, qui dolores! Praesentium quod commodi, repellendus ipsa eum esse? Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, voluptates doloribus voluptatibus possimus inventore molestias?',
+      read: true,
+    },
+    {
+      id: 3,
+      date: '02/03/2023',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, itaque minus! Explicabo, temporibus sint facilis sequi   amet ullam labore maxime aspernatur doloribus earum fugiat laudantium aperiam quo nam aliquam commodi? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio, iste. Dolore, cupiditate modi doloribus odio ipsum itaque hic sit necessitatibus, ducimus, qui dolores! Praesentium quod commodi, repellendus ipsa eum esse? Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, voluptates doloribus voluptatibus possimus inventore molestias?',
+      read: false,
+    },
+    {
+      id: 4,
+      date: '05/05/2023',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, itaque minus! Explicabo, temporibus sint facilis sequi   amet ullam labore maxime aspernatur doloribus earum fugiat laudantium aperiam quo nam aliquam commodi? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio, iste. Dolore, cupiditate modi doloribus odio ipsum itaque hic sit necessitatibus, ducimus, qui dolores! Praesentium quod commodi, repellendus ipsa eum esse? Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, voluptates doloribus voluptatibus possimus inventore molestias?',
+      read: true,
+    },
+  ])
+  const [notificationData, setNotificationData] = useState<NotificationData>(
+    {} as NotificationData,
+  )
+
+  function handleSetModalVisibility(data?: NotificationData) {
+    if (data) {
+      setNotifications((oldValue) =>
+        oldValue.map((item) =>
+          item.id === data.id ? { ...item, read: true } : item,
+        ),
+      )
+      setNotificationData(data)
+    } else {
+      setNotificationData({} as NotificationData)
+    }
+
+    setModalVisible((oldValue) => !oldValue)
+  }
 
   return (
-    <View className="flex-1 bg-background px-6 pt-8">
-      <View>
-        <BackButton />
-      </View>
-      <Text className="text-white font-bold mx-auto text-2xl">
-        Notificações
-      </Text>
-      <View className="bg-zinc-800 h-auto w-80 pb-4 rounded-lg py-4 mt-8">
-        <ScrollView>
-          <View className="flex-row justify-around items-center">
-            <Text className="text-white font-semibold text-base">
-              10/01/2023
-            </Text>
-            <View>
-              <Modal
-                animationType="fade"
-                transparent={true}
-                visible={modalVisible}
-                onRequestClose={() => {
-                  Alert.alert('Modal has been closed.')
-                  setModalVisible(!modalVisible)
-                }}
-              >
-                <View className="w-12 h-12 flex-1 items-center justify-center">
-                  <View className="bg-zinc-700 rounded-lg h-auto w-80 ml-80 flex p-4  items-center">
-                    <Text className="text-white font-regular text-lg text-justify">
-                      Boa tarde galera, seguinte: Lorem ipsum dolor, sit amet
-                      consectetur adipisicing elit. Ea aspernatur facilis
-                      repellendus, saepe officia placeat. Impedit rerum sint
-                      eius illum deserunt reprehenderit nisi cumque quaerat
-                      iure, quos, saepe similique modi.
-                    </Text>
-                    <TouchableOpacity
-                      className="h-8 w-20  bg-background mt-10 flex rounded-lg items-center justify-center"
-                      onPress={() => setModalVisible(!modalVisible)}
-                      activeOpacity={0.7}
-                    >
-                      <Text className="text-white text-base">Fechar</Text>
-                    </TouchableOpacity>
-                  </View>
-                </View>
-              </Modal>
-              <TouchableOpacity
-                className="bg-zinc-600 p-2 h-16 w-48 rounded-lg flex items-center justify-center"
-                activeOpacity={0.7}
-                onPress={() => setModalVisible(true)}
-              >
-                <Text className="text-white">Boa tarde galera, seguin...</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        </ScrollView>
-      </View>
-    </View>
+    <VStack flex={1} backgroundColor="gray.900" p={6}>
+      <Center>
+        <Heading color="gray.100" fontFamily="heading" fontSize="2xl">
+          Notificações
+        </Heading>
+      </Center>
+
+      <ScrollView flex={1} py={8}>
+        {notifications.map((item) => (
+          <NotificationItem
+            key={item.id}
+            data={item}
+            onPressNotification={handleSetModalVisibility}
+          />
+        ))}
+      </ScrollView>
+
+      <Modal isOpen={modalVisible} onClose={handleSetModalVisibility}>
+        <Modal.Content backgroundColor="gray.500">
+          <Modal.CloseButton
+            _icon={{ color: 'gray.100' }}
+            _pressed={{ backgroundColor: 'gray.700' }}
+          />
+          <Modal.Header
+            backgroundColor="gray.500"
+            _text={{ color: 'gray.100' }}
+          >
+            {notificationData.date}
+          </Modal.Header>
+          <Modal.Body _text={{ color: 'gray.100', fontSize: 'md' }}>
+            {notificationData.description}
+          </Modal.Body>
+        </Modal.Content>
+      </Modal>
+    </VStack>
   )
 }
