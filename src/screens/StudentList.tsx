@@ -1,5 +1,3 @@
-import { View, TouchableOpacity, TextInput } from 'react-native'
-import { useNavigation } from '@react-navigation/native'
 import { Input } from '../components/Input'
 import { VStack, Text, HStack, ScrollView } from 'native-base'
 import { StudentCard } from '../components/StudentCard'

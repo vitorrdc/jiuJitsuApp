@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { BackButton } from '../components/BackButton'
 import { Input } from '../components/Input'
 import { Button } from '../components/Button'
 import {
@@ -10,10 +9,8 @@ import {
   CheckIcon,
   View,
   Stack,
-  Flex,
 } from 'native-base'
 import { Alert } from 'react-native'
-import { flexbox } from 'native-base/lib/typescript/theme/styled-system'
 
 export function StudentEdit() {
   const [belt, setBelt] = useState('')
