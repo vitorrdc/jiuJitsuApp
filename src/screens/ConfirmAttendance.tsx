@@ -2,10 +2,16 @@ import { VStack, Text, Button, Modal, Stack, Checkbox } from 'native-base'
 import { useState } from 'react'
 
 export function ConfirmAttendance() {
-  const [showModal, setShowModal] = useState(false)
+  const [showModal, setShowModal] = useState<boolean>(false)
+  const [isOpen, setIsOpen] = useState<boolean>(false)
 
-  const date = '10/01/2023'
-  const time = '18:15h - 19:30h'
+  const date: string = '10/01/2023'
+  const time: string = '18:15h - 19:30h'
+
+  function handleShowModal() {
+    setShowModal(true)
+    setIsOpen(true)
+  }
 
   return (
     <VStack backgroundColor="gray.900" flex={1} px={6}>
@@ -19,7 +25,10 @@ export function ConfirmAttendance() {
         Confirmar presença
       </Text>
       <VStack w="full" backgroundColor="gray.400" mt={10}>
-        <Button onPress={() => setShowModal(true)} bgColor="blue.500">
+        <Button
+          onPress={handleShowModal}
+          bgColor={isOpen === true ? 'gray.200' : 'blue.500'}
+        >
           <Text color="white" fontFamily="heading">
             {date} - 18:15h às 19:30h
           </Text>
@@ -34,10 +43,18 @@ export function ConfirmAttendance() {
             </Modal.Header>
             <Modal.Body>
               <Stack>
-                <Checkbox colorScheme="green">Vitinho</Checkbox>
-                <Checkbox colorScheme="green">Fernando</Checkbox>
-                <Checkbox colorScheme="green">Marcelo</Checkbox>
-                <Checkbox colorScheme="green">Douglas</Checkbox>
+                <Checkbox value={'1'} colorScheme="green">
+                  Vitinho
+                </Checkbox>
+                <Checkbox value={'2'} colorScheme="green">
+                  Fernando
+                </Checkbox>
+                <Checkbox value={'3'} colorScheme="green">
+                  Marcelo
+                </Checkbox>
+                <Checkbox value={'4'} colorScheme="green">
+                  Douglas
+                </Checkbox>
               </Stack>
             </Modal.Body>
             <Modal.Footer bgColor="gray.200">
