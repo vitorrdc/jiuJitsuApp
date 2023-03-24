@@ -1,57 +1,102 @@
-import { View, Text, TouchableOpacity } from 'react-native'
-import { ScrollView } from 'react-native-gesture-handler'
-import { BackButton } from '../components/BackButton'
+import {
+  ScrollView,
+  Center,
+  Button,
+  Modal,
+  FormControl,
+  Input,
+  Stack,
+  Checkbox,
+  Text,
+} from 'native-base'
+import { useState } from 'react'
 
-const weekDays = ['seg', 'ter', 'qua', 'qui', 'sex', 'sab', 'dom']
+type NewGridData = {
+  time: string
+  weekDays: string[]
+}
 
 export function TrainningGrid() {
+  const [showModal, setShowModal] = useState(false)
+  const [newTime, setNewTime] = useState<string>('')
+  const [weekDaysCheckbox, setWeekDaysCheckbox] = useState<string[]>([])
+  const [newGridData, setNewGridData] = useState<NewGridData>({
+    time: '',
+    weekDays: [],
+  } as NewGridData)
+  const weekDays: string[] = ['seg', 'ter', 'qua', 'qui', 'sex', 'sab', 'dom']
+
+  function handleNewGridData() {
+    setShowModal(false)
+    setNewGridData({
+      time: newTime,
+      weekDays: weekDaysCheckbox,
+    })
+  }
+
   return (
-    <View className="flex-1 bg-background p-4">
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <View className="flex-row justify-center mt-4 items-center">
-          <View className="absolute left-0">
-            <BackButton />
-          </View>
-          <Text className="text-white font-bold text-xl">Grade de treinos</Text>
-        </View>
-        <View className="items-center mt-6">
-          <TouchableOpacity className="bg-blue-500 w-48 p-2 rounded-lg mb-6">
-            <Text className="text-center text-white font-regular text-base">
-              Novo horário
-            </Text>
-          </TouchableOpacity>
-          <View className="bg-zinc-600 w-full p-2 rounded-lg mb-8">
-            <View className="bg-background p-2 w-full rounded-lg border border-zinc-400">
-              <Text className="text-white text-center">18:15h às 19:30h</Text>
-            </View>
-            <View className="w-full flex-row justify-around items-center h-16">
-              {weekDays.map((day) => {
-                return (
-                  <View className="items-center">
-                    <Text className="text-white font-regular mb-1">{day}</Text>
-                    <View className="bg-green-500 h-6 w-6 rounded-md" />
-                  </View>
-                )
-              })}
-            </View>
-          </View>
-          <View className="bg-zinc-600 w-full p-2 rounded-lg">
-            <View className="bg-background p-2 w-full rounded-lg border border-zinc-400">
-              <Text className="text-white text-center">20:00h às 22:00h</Text>
-            </View>
-            <View className="w-full flex-row justify-around items-center h-16">
-              {weekDays.map((day) => {
-                return (
-                  <View className="items-center">
-                    <Text className="text-white font-regular mb-1">{day}</Text>
-                    <View className="bg-green-500 h-6 w-6 rounded-md" />
-                  </View>
-                )
-              })}
-            </View>
-          </View>
-        </View>
-      </ScrollView>
-    </View>
+    <ScrollView
+      showsVerticalScrollIndicator={false}
+      backgroundColor="gray.900"
+      contentContainerStyle={{ paddingBottom: 100 }}
+    >
+      <Center>
+        <Button onPress={() => setShowModal(true)}>Button</Button>
+        <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
+          <Modal.Content maxWidth="400px">
+            <Modal.CloseButton />
+            <Modal.Header>Criar novo horário</Modal.Header>
+            <Modal.Body>
+              <FormControl>
+                <FormControl.Label>Horário</FormControl.Label>
+                <Input onChangeText={setNewTime} />
+              </FormControl>
+              <FormControl>
+                <FormControl.Label>Selecione os dias</FormControl.Label>
+                <Stack
+                  display="flex"
+                  flexDirection="row"
+                  justifyContent="space-around"
+                >
+                  {weekDays.map((day: string, index: number) => {
+                    return (
+                      <Checkbox.Group
+                        key={index}
+                        display="flex"
+                        justifyContent="center"
+                        alignItems="center"
+                        onChange={setWeekDaysCheckbox}
+                        value={weekDaysCheckbox}
+                      >
+                        <Text mb="6px">{day}</Text>
+                        <Checkbox
+                          value={day}
+                          colorScheme="green"
+                          my={weekDays.length}
+                        />
+                      </Checkbox.Group>
+                    )
+                  })}
+                </Stack>
+              </FormControl>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button.Group space={2}>
+                <Button
+                  variant="ghost"
+                  colorScheme="blueGray"
+                  onPress={() => {
+                    setShowModal(false)
+                  }}
+                >
+                  Cancel
+                </Button>
+                <Button onPress={handleNewGridData}>Save</Button>
+              </Button.Group>
+            </Modal.Footer>
+          </Modal.Content>
+        </Modal>
+      </Center>
+    </ScrollView>
   )
 }
