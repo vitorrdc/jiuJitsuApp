@@ -20,19 +20,26 @@ export function TrainningGrid() {
   const [showModal, setShowModal] = useState(false)
   const [newTime, setNewTime] = useState<string>('')
   const [weekDaysCheckbox, setWeekDaysCheckbox] = useState<string[]>([])
-  const [newGridData, setNewGridData] = useState<NewGridData>({
-    time: '',
-    weekDays: [],
-  } as NewGridData)
+  const [newGridData, setNewGridData] = useState<NewGridData[]>([
+    {
+      time: '',
+      weekDays: [],
+    },
+  ])
   const weekDays: string[] = ['seg', 'ter', 'qua', 'qui', 'sex', 'sab', 'dom']
 
   function handleNewGridData() {
     setShowModal(false)
-    setNewGridData({
-      time: newTime,
-      weekDays: weekDaysCheckbox,
-    })
+    setNewGridData([
+      ...newGridData,
+      {
+        time: newTime,
+        weekDays: weekDaysCheckbox,
+      },
+    ])
   }
+
+  console.log(newGridData)
 
   return (
     <ScrollView
@@ -97,6 +104,13 @@ export function TrainningGrid() {
           </Modal.Content>
         </Modal>
       </Center>
+      {newGridData.map((element: NewGridData, index: number) => {
+        return (
+          <Stack key={index} backgroundColor="gray.400">
+            <Text color="white">{element.weekDays}</Text>
+          </Stack>
+        )
+      })}
     </ScrollView>
   )
 }
