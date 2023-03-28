@@ -9,6 +9,7 @@ import { StudentList } from '../screens/StudentList'
 import { StudentEdit } from '../screens/StudentEdit'
 import { ConfirmAttendance } from '../screens/ConfirmAttendance'
 import { TrainningGrid } from '../screens/TrainningGrid'
+import { AttendanceList } from '../screens/AttendanceList'
 
 const Drawer = createDrawerNavigator()
 
@@ -60,6 +61,10 @@ export function AdmRoutes() {
           <Drawer.Screen
             name="Confirmar Presenças"
             component={ConfirmAttendance}
+          />
+          <Drawer.Screen
+            name="Visualizar Presenças"
+            component={AttendanceList}
           />
           <Drawer.Screen name="Grade de Treinos" component={TrainningGrid} />
           <Drawer.Screen name="Sair" component={LogOut} />

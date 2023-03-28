@@ -114,9 +114,14 @@ export function TrainningGrid() {
                       setShowModal(false)
                     }}
                   >
-                    Cancel
+                    Cancelar
                   </Button>
-                  <Button onPress={handleNewGridData}>Save</Button>
+                  <Button
+                    onPress={handleNewGridData}
+                    backgroundColor="green.500"
+                  >
+                    Salvar
+                  </Button>
                 </Button.Group>
               </Modal.Footer>
             </Modal.Content>
