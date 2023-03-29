@@ -8,10 +8,8 @@ import {
   Text,
   Input,
   FlatList,
-  ScrollView,
 } from 'native-base'
 import { useState } from 'react'
-import { SafeAreaView } from 'react-native-safe-area-context'
 
 export function AttendanceList() {
   const [showModal, setShowModal] = useState(false)
@@ -20,39 +18,17 @@ export function AttendanceList() {
     'Danilo',
     'Davi',
     'Wesley',
-    'Fernando',
-    'Batata',
-    'Patati',
-    'Patata',
-    'Ogro',
-    'Jhonson',
-    'Wedsley',
-    'Joaquim',
-    'Maria',
-    'Grazielle',
-    'Júlia',
-    'Tonho',
   ])
   const [originalsStudents] = useState<string[]>([
     'Vitinho',
     'Danilo',
     'Davi',
     'Wesley',
-    'Fernando',
-    'Batata',
-    'Patati',
-    'Patata',
-    'Ogro',
-    'Jhonson',
-    'Wedsley',
-    'Joaquim',
-    'Maria',
-    'Grazielle',
-    'Júlia',
-    'Tonho',
   ])
 
-  function renderList(item: string) {
+  console.log(students[2])
+
+  function renderList(item: string, index: number) {
     return (
       <Center>
         <Button
@@ -73,7 +49,7 @@ export function AttendanceList() {
             <Modal.CloseButton />
             <Modal.Header backgroundColor="gray.200">
               <Text fontWeight="bold" fontSize="lg">
-                Presença por faixa
+                Presença por faixa: {item}
               </Text>
             </Modal.Header>
             <Modal.Body>
@@ -132,16 +108,14 @@ export function AttendanceList() {
           placeholder="Buscar aluno"
           onChangeText={(item) => searchItem(item)}
           color="white"
+          _focus={{ borderColor: 'gray.200' }}
         />
       </Stack>
-
-      <SafeAreaView>
-        <FlatList
-          data={students}
-          renderItem={({ item }) => renderList(item)}
-          keyExtractor={(item) => String(item)}
-        />
-      </SafeAreaView>
+      <FlatList
+        data={students}
+        renderItem={({ item, index }) => renderList(item, index)}
+        keyExtractor={(item) => String(item)}
+      />
     </VStack>
   )
 }
