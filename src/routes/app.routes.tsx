@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react'
 import { Login } from '../screens/Login'
 import { auth } from '../services/firebase'
 import { LogOut } from '../components/LogOut'
+import { WhoGoes } from '../screens/WhoGoes'
 
 const Drawer = createDrawerNavigator()
 
@@ -57,6 +58,7 @@ export function AppRoutes() {
           <Drawer.Screen name="Home" component={Home} />
           <Drawer.Screen name="Agenda de aula" component={ToSchedule} />
           <Drawer.Screen name="Minha evolução" component={Timeline} />
+          <Drawer.Screen name="Quem vai hoje" component={WhoGoes} />
           <Drawer.Screen
             name="Comunicados e avisos"
             component={Notifications}

@@ -1,8 +1,37 @@
 import { Input } from '../components/Input'
 import { VStack, Text, HStack, ScrollView } from 'native-base'
 import { StudentCard } from '../components/StudentCard'
+import { useState } from 'react'
+
+type StudentsData = {
+  id: number
+  name: string
+}
 
 export function StudentList() {
+  const [students, setStudents] = useState<StudentsData[]>([
+    {
+      id: 1,
+      name: 'Vitor',
+    },
+    {
+      id: 2,
+      name: 'Gustavo',
+    },
+    {
+      id: 3,
+      name: 'Danilo',
+    },
+    {
+      id: 4,
+      name: 'Fernando',
+    },
+    {
+      id: 5,
+      name: 'Carlos',
+    },
+  ])
+
   return (
     <VStack flex={1} backgroundColor="gray.900" px={6}>
       <VStack mt={6}>
@@ -29,9 +58,9 @@ export function StudentList() {
       </HStack>
 
       <ScrollView showsVerticalScrollIndicator={false} flex={1} mt={4}>
-        <StudentCard name="Vitor Ribeiro" />
-        <StudentCard name="Fernando Barbosa" />
-        <StudentCard name="Danilo Silva" />
+        {students.map((student) => {
+          return <StudentCard key={student.id} name={student.name} />
+        })}
       </ScrollView>
     </VStack>
   )

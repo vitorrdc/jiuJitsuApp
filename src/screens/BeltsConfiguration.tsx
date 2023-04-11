@@ -7,7 +7,6 @@ import {
   Button,
   Modal,
   Stack,
-  Input,
 } from 'native-base'
 import { useState } from 'react'
 
@@ -88,6 +87,7 @@ export function BeltsConfiguration() {
     },
   ])
   const [showModal, setShowModal] = useState<boolean>(false)
+
   const [beltData, setBeltData] = useState<BeltsData>({} as BeltsData)
 
   function handleSetVisibilityModal(belt?: BeltsData | any) {
@@ -140,39 +140,31 @@ export function BeltsConfiguration() {
             </Text>
           </Modal.Header>
           <Modal.Body px={4}>
-            <Stack mb={10}>
-              <Text fontSize={20} fontWeight="bold" textAlign="center">
-                Atual: {beltData.qtdade_aulas} aulas
-              </Text>
-            </Stack>
+            <Text fontSize={20} fontWeight="bold" textAlign="center">
+              {beltData.qtdade_aulas} aulas
+            </Text>
             <Stack
               display="flex"
               flexDirection="row"
               justifyContent="flex-start"
               alignItems="center"
-            >
-              <Text fontWeight="bold" mr={2}>
-                Novo:
-              </Text>
-              <Input
-                placeholder="Qtd em aulas"
-                backgroundColor="gray.300"
-                placeholderTextColor="white"
-                px={3}
-                borderRadius={5}
-                w={40}
-              />
-            </Stack>
+            ></Stack>
           </Modal.Body>
           <Modal.Footer backgroundColor="gray.200">
             <Button.Group space={2}>
               <Button
+                onPress={() => setShowModal(false)}
+                backgroundColor="blue.500"
+              >
+                Alterar
+              </Button>
+              <Button
                 onPress={() => {
                   setShowModal(false)
                 }}
-                backgroundColor="green.500"
+                backgroundColor="gray.500"
               >
-                Salvar
+                Fechar
               </Button>
             </Button.Group>
           </Modal.Footer>

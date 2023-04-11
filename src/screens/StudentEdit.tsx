@@ -16,7 +16,7 @@ export function StudentEdit() {
   const [belt, setBelt] = useState('')
   const [degree, setDegree] = useState('')
 
-  function handleBeltChange(itemValue: any) {
+  function handleBeltChange(itemValue: string) {
     setBelt(itemValue)
     if (belt) {
       Alert.alert(
@@ -112,6 +112,16 @@ export function StudentEdit() {
           <Input label="Descrição do evento" placeholder="Ex: Ganhou 2 graus" />
 
           <Button title="Atualizar" mt={2} />
+          <Stack>
+            <Button
+              title="Bloquear aluno"
+              mt={4}
+              size="mini"
+              backgroundColor="red.500"
+            >
+              <Text>Bloquear aluno</Text>
+            </Button>
+          </Stack>
         </VStack>
         <Stack
           display="flex"
