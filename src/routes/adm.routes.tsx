@@ -1,4 +1,5 @@
 import { createDrawerNavigator } from '@react-navigation/drawer'
+import { createStackNavigator } from '@react-navigation/stack'
 import { User } from 'firebase/auth'
 import { useEffect, useState } from 'react'
 import { Login } from '../screens/Login'
@@ -11,8 +12,10 @@ import { ConfirmAttendance } from '../screens/ConfirmAttendance'
 import { TrainningGrid } from '../screens/TrainningGrid'
 import { AttendanceList } from '../screens/AttendanceList'
 import { BeltsConfiguration } from '../screens/BeltsConfiguration'
+import { NavigationContainer } from '@react-navigation/native'
 
 const Drawer = createDrawerNavigator()
+const Stack = createStackNavigator()
 
 export function AdmRoutes() {
   const [userOn, setUserOn] = useState<User | null>(null)

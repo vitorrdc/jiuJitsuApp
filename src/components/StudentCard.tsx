@@ -3,9 +3,10 @@ import { Button } from './Button'
 
 type Props = {
   name: string
+  onPress(): void
 }
 
-export function StudentCard({ name }: Props) {
+export function StudentCard({ name, onPress }: Props) {
   return (
     <HStack
       backgroundColor="gray.400"
@@ -19,7 +20,7 @@ export function StudentCard({ name }: Props) {
       <Text color="gray.100" flex={1}>
         {name}
       </Text>
-      <Button title="Editar" size="mini" w="auto" />
+      <Button title="Editar" size="mini" w="auto" onPress={onPress} />
     </HStack>
   )
 }
