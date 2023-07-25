@@ -1,24 +1,49 @@
-import { createDrawerNavigator } from '@react-navigation/drawer'
-import { createStackNavigator } from '@react-navigation/stack'
+import React, { useEffect, useState } from 'react'
+import {
+  createBottomTabNavigator,
+  BottomTabNavigationProp,
+} from '@react-navigation/bottom-tabs'
+import { Feather } from '@expo/vector-icons'
+
 import { User } from 'firebase/auth'
-import { useEffect, useState } from 'react'
-import { Login } from '../screens/Login'
+
 import { auth } from '../services/firebase'
-import { LogOut } from '../components/LogOut'
+
+import { Login } from '../screens/Login'
+import { HomeAdmin } from '../screens/HomeAdmin'
 import { AddNewUser } from '../screens/AddNewUser'
 import { StudentList } from '../screens/StudentList'
-import { StudentEdit } from '../screens/StudentEdit'
-import { ConfirmAttendance } from '../screens/ConfirmAttendance'
+import { EditStudent } from '../screens/EditStudent'
 import { TrainningGrid } from '../screens/TrainningGrid'
 import { AttendanceList } from '../screens/AttendanceList'
+import { ConfirmAttendance } from '../screens/ConfirmAttendance'
 import { BeltsConfiguration } from '../screens/BeltsConfiguration'
-import { NavigationContainer } from '@react-navigation/native'
+import { Icon, useTheme } from 'native-base'
+import { Platform } from 'react-native'
+import { LogOut } from '../components/LogOut'
 
-const Drawer = createDrawerNavigator()
-const Stack = createStackNavigator()
+export type AdmRoutesProps = {
+  Login: undefined
+  HomeAdmin: undefined
+  NewUser: undefined
+  StudentsList: undefined
+  EditStudent: {
+    studentId: string
+  }
+  ConfirmAttendance: undefined
+  AttendanceList: undefined
+  TrainingGrid: undefined
+  BeltsConfiguration: undefined
+  SignOut: undefined
+}
+export type AdmNavigatorRoutesProps = BottomTabNavigationProp<AdmRoutesProps>
+
+const { Navigator, Screen } = createBottomTabNavigator<AdmRoutesProps>()
 
 export function AdmRoutes() {
   const [userOn, setUserOn] = useState<User | null>(null)
+  const { colors, sizes } = useTheme()
+  const iconSize = sizes[2]
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -27,57 +52,117 @@ export function AdmRoutes() {
   }, [])
 
   return (
-    <Drawer.Navigator
+    <Navigator
       screenOptions={{
-        drawerStyle: {
-          backgroundColor: '#111111',
+        headerShown: false,
+        tabBarShowLabel: false,
+        tabBarActiveTintColor: colors.blue[600],
+        tabBarInactiveTintColor: colors.gray[200],
+        tabBarStyle: {
+          backgroundColor: colors.gray[100],
+          borderTopWidth: 0,
+          height: Platform.OS === 'android' ? 'auto' : 96,
+          paddingBottom: sizes[10],
+          paddingTop: sizes[6],
         },
-        drawerActiveBackgroundColor: '#ffffff73',
-        drawerInactiveBackgroundColor: '#96969684',
-        drawerActiveTintColor: '#090909',
-        drawerInactiveTintColor: '#090909',
-        drawerLabelStyle: {
-          fontSize: 18,
-        },
-        headerStyle: {
-          backgroundColor: '#0a0a0a',
-        },
-        headerTintColor: '#ffff',
-        headerTransparent: false,
-        headerTitle: 'Nome da Academia',
       }}
+      backBehavior="history"
       initialRouteName="Login"
     >
-      {!userOn && (
-        <Drawer.Screen
+      {!userOn ? (
+        <Screen
           name="Login"
           component={Login}
           options={{
             headerShown: false,
+            tabBarStyle: {
+              height: 0,
+            },
           }}
         />
-      )}
-      {userOn && (
+      ) : (
         <>
-          <Drawer.Screen name="Criar novo Usuário" component={AddNewUser} />
-          <Drawer.Screen name="Lista de alunos" component={StudentList} />
-          <Drawer.Screen name="Editar Alunos" component={StudentEdit} />
-          <Drawer.Screen
-            name="Confirmar Presenças"
+          <Screen
+            name="HomeAdmin"
+            component={HomeAdmin}
+            options={{
+              tabBarIcon: ({ color }) => (
+                <Icon as={Feather} name="home" size={iconSize} color={color} />
+              ),
+            }}
+          />
+          <Screen
+            name="NewUser"
+            component={AddNewUser}
+            options={{ tabBarButton: () => null }}
+          />
+          <Screen
+            name="StudentsList"
+            component={StudentList}
+            options={{
+              tabBarButton: () => null,
+              tabBarStyle: {
+                display: 'none',
+              },
+            }}
+          />
+          <Screen
+            name="EditStudent"
+            component={EditStudent}
+            options={{
+              tabBarButton: () => null,
+              tabBarStyle: {
+                display: 'none',
+              },
+            }}
+          />
+          <Screen
+            name="ConfirmAttendance"
             component={ConfirmAttendance}
+            options={{ tabBarButton: () => null }}
           />
-          <Drawer.Screen
-            name="Visualizar Presenças"
+          <Screen
+            name="AttendanceList"
             component={AttendanceList}
+            options={{ tabBarButton: () => null }}
           />
-          <Drawer.Screen name="Grade de Treinos" component={TrainningGrid} />
-          <Drawer.Screen
-            name="Configuração de Faixas"
+          <Screen
+            name="TrainingGrid"
+            component={TrainningGrid}
+            options={{
+              tabBarIcon: ({ color }) => (
+                <Icon
+                  as={Feather}
+                  name="calendar"
+                  size={iconSize}
+                  color={color}
+                />
+              ),
+            }}
+          />
+          <Screen
+            name="BeltsConfiguration"
             component={BeltsConfiguration}
+            options={{ tabBarButton: () => null }}
           />
-          <Drawer.Screen name="Sair" component={LogOut} />
+          <Screen
+            name="SignOut"
+            component={LogOut}
+            options={{
+              tabBarIcon: () => {
+                return (
+                  <Icon
+                    as={Feather}
+                    name="log-out"
+                    size={iconSize}
+                    color={colors.red[600]}
+                  />
+                )
+              },
+            }}
+          />
         </>
       )}
-    </Drawer.Navigator>
+    </Navigator>
   )
 }

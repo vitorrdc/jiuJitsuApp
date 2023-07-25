@@ -3,10 +3,11 @@ import { Button } from './Button'
 
 type Props = {
   name: string
-  onPress(): void
+  onEditStudent(): void
+  onDeleteStudent(): void
 }
 
-export function StudentCard({ name, onPress }: Props) {
+export function StudentCard({ name, onEditStudent, onDeleteStudent }: Props) {
   return (
     <HStack
       backgroundColor="gray.400"
@@ -20,7 +21,15 @@ export function StudentCard({ name, onPress }: Props) {
       <Text color="gray.100" flex={1}>
         {name}
       </Text>
-      <Button title="Editar" size="mini" w="auto" onPress={onPress} />
+      <Button
+        variant="red"
+        title="Remover"
+        size="mini"
+        w="auto"
+        mr={2}
+        onPress={onDeleteStudent}
+      />
+      <Button title="Editar" size="mini" w="auto" onPress={onEditStudent} />
     </HStack>
   )
 }

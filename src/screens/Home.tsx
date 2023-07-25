@@ -8,7 +8,6 @@ import {
   Image,
   Box,
   Heading,
-  Center,
   Stack,
   useTheme,
 } from 'native-base'
