@@ -119,7 +119,12 @@ export function AdmRoutes() {
           <Screen
             name="ConfirmAttendance"
             component={ConfirmAttendance}
-            options={{ tabBarButton: () => null }}
+            options={{
+              tabBarButton: () => null,
+              tabBarStyle: {
+                display: 'none',
+              },
+            }}
           />
           <Screen
             name="AttendanceList"

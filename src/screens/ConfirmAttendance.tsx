@@ -9,6 +9,7 @@ import {
   Input,
 } from 'native-base'
 import { useState } from 'react'
+import { Header } from '../components/Header'
 
 type StudentsData = {
   id: number
@@ -88,16 +89,8 @@ export function ConfirmAttendance() {
   }
 
   return (
-    <VStack backgroundColor="gray.900" flex={1} px={6}>
-      <Text
-        color="white"
-        fontFamily="heading"
-        fontSize="xl"
-        textAlign="center"
-        mt={6}
-      >
-        Confirmar presença
-      </Text>
+    <VStack backgroundColor="gray.900" flex={1} px={6} pt={16}>
+      <Header title="Confirmar presença" />
       <VStack w="full" backgroundColor="gray.400" mt={10}>
         <Button
           onPress={handleShowModal}

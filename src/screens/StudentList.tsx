@@ -83,7 +83,7 @@ export function StudentList() {
   }
 
   return (
-    <VStack flex={1} backgroundColor="gray.900" pt={6}>
+    <VStack flex={1} backgroundColor="gray.900" pt={16}>
       <Header title="Lista de Alunos" />
 
       <VStack px={6} flex={1}>

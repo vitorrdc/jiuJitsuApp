@@ -9,6 +9,7 @@ export function HomeAdmin() {
       showsVerticalScrollIndicator={false}
       _contentContainerStyle={{
         p: 6,
+        pt: 16,
       }}
     >
       <HStack justifyContent="space-between">

@@ -1,18 +1,21 @@
 import {
-  ScrollView,
   Center,
   Button,
   Modal,
   FormControl,
-  Input,
   Stack,
   Checkbox,
   Text,
   VStack,
+  Pressable,
+  HStack,
 } from 'native-base'
 import { useState } from 'react'
 import { Header } from '../components/Header'
 import { ScreenContainer } from '../components/ScreenContainer'
+import { TagToggleable } from '../components/TagToggleable'
+import { times } from '../data/times'
+import { View } from 'react-native'
 
 type NewGridData = {
   time: string
@@ -51,7 +54,7 @@ export function TrainningGrid() {
   }
 
   return (
-    <VStack flex={1} background="gray.900" pt={6}>
+    <VStack flex={1} background="gray.900" pt={16}>
       <Header title="Grade de horários" />
       <ScreenContainer>
         <VStack p={6}>
@@ -68,10 +71,12 @@ export function TrainningGrid() {
                 <Modal.CloseButton />
                 <Modal.Header>Criar novo horário</Modal.Header>
                 <Modal.Body>
-                  <FormControl>
-                    <FormControl.Label>Horário</FormControl.Label>
-                    <Input onChangeText={setNewTime} />
-                  </FormControl>
+                  <View className="flex-row flex-wrap">
+                    {times.map((time) => (
+                      <TagToggleable title={time.label} key={time.value} />
+                    ))}
+                  </View>
+
                   <FormControl>
                     <FormControl.Label>Selecione os dias</FormControl.Label>
                     <Stack
